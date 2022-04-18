@@ -6,7 +6,7 @@ const Footer = () => {
       };
     return (
         <footer>
-      <p>copyright@ {getCurrentYear()}</p>
+      <p>copyright©{getCurrentYear()}</p>
     </footer>
     );
 };
