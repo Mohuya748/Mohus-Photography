@@ -1,7 +1,7 @@
 
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -33,13 +33,13 @@ const Login = () => {
                     <Form.Control ref={passwordRef} type="password" placeholder="Password" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
+                    <Form.Check type="checkbox" label="I am not a robot" />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
             </Form>
-            <p>New to Mohu's photography? <span className='text-danger' onClick={navigateRegister}>Register now</span></p>
+            <p>New to Mohu's photography? <Link to='/register'className='text-danger pe-auto text-decoration-none' onClick={navigateRegister}>Register now</Link></p>
         </div>
     );
 };
