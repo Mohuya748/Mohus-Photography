@@ -1,19 +1,49 @@
 import React from 'react';
+import { Carousel } from 'react-bootstrap';
+import top from '../../../images/top.jpg'
+import top1 from '../../../images/top1.jpg'
+import top2 from '../../../images/top2.jpg'
 
 const Banner = () => {
     return (
-        <div class="container mt-4 mb-4">
-            <div class="row">
-                <div class="col-lg-6 m-3">
-                    <h1>MOHU'S PHOTOGRAPHYddd</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque iusto deserunt recusandae autem, quam ipsum nam ratione placeat ex doloremque. Quasi, velit? Ipsum officia quas velit a praesentium, libero quisquam?</p>
-                </div>
-                <div class="col-lg-6 m-3">
-                    <img src="top.jpg" alt="top" style={{ width: '400px' }} className='m-3' />
-                </div>
-            </div>
-            </div>
-            );
+        <Carousel>
+            <Carousel.Item>
+                <img
+                    className="d-block w-100"
+                    src={top}
+                    alt="banner1"
+                />
+                <Carousel.Caption>
+                    <h3>Mohu's Photography</h3>
+                    <p>Contact us for a great experience of your photos!!</p>
+                </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+                <img
+                    className="d-block w-100"
+                    src={top1}
+                    alt="Second slide"
+                />
+
+                <Carousel.Caption>
+                    <h3>Mohu's Photography</h3>
+                    <p>Contact us for a great experience of your photos!!</p>
+                </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+                <img
+                    className="d-block w-100"
+                    src={top2}
+                    alt="Third slide"
+                />
+
+                <Carousel.Caption>
+                    <h3>Mohu's Photography</h3>
+                    <p>Contact us for a great experience of your photos!!</p>
+                </Carousel.Caption>
+            </Carousel.Item>
+        </Carousel>
+    );
 };
 
-            export default Banner;
+export default Banner;
