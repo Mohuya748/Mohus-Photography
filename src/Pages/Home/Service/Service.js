@@ -1,10 +1,13 @@
+
+// service component 
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Service = ({ service }) => {
     const { name, img, price, description } = service;
     return (
-        <div className="col col-sm-12 col-md-4 col-lg-4 g-4">
+        <div className="col col-sm-12 col-lg-4 g-4">
 
             <div className="card h-100">
                 <img src={img} className="card-img-top" alt="image" />

@@ -1,3 +1,4 @@
+//  about component 
 import React from 'react';
 import top from '../../images/top.jpg'
 
@@ -6,9 +7,7 @@ const About = () => {
         <div className='d-flex container'>
             <div className='m-5'>
             <h1>Mohu's Photography</h1>
-            <p className='fs-3'>This about a photography service site. Here we provide so many photography services like bridal photography, nature photography,small get together photography and do on and it's within a very cheap price!.
-                
-            so contact us soon to create your memories with us!!</p>
+            <p className='fs-3'>This about a photography service site. Here I provide so many photography services like bridal photography, nature photography, small get together photography and so on and it's within a very cheap price! I want to make everyone's memories so colorful to them. so contact to book your appointment!!!</p>
             </div>
            
             <div className='m-5'>

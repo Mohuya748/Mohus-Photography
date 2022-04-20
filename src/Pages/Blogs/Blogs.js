@@ -1,3 +1,4 @@
+//  blog component 
 import React from 'react';
 
 const Blogs = () => {

@@ -1,3 +1,5 @@
+// BAnner component
+
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import top from '../../../images/top.jpg'
