@@ -13,8 +13,8 @@ const Register = () => {
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
-       const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
 
     const emailRef = useRef('');
@@ -22,19 +22,21 @@ const Register = () => {
     const nameRef = useRef('');
     const phoneRef = useRef('');
     const navigate = useNavigate();
-    const navigateLogin = e =>{
+    
+    const navigateLogin = e => {
         navigate('/login');
 
     }
 
-    if(user){
+    if (user) {
         navigate('/home');
     }
-    if(loading){
+    if (loading) {
         return <Loading></Loading>
     }
 
-    const handleSubmit =async (e) =>{
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
@@ -42,28 +44,25 @@ const Register = () => {
         const phone = phoneRef.current.value;
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName: name });
-        console.log('Updated profile');
         navigate('/home');
     }
     
+
     return (
         <div className='container w-50 mx-auto'>
             <h1 className='text-success text-center mt-2'>Register Now!</h1>
             <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicText">
+                <Form.Group className="mb-3" controlId="formBasicText">
                     <Form.Label>Name</Form.Label>
                     <Form.Control ref={nameRef} type="text" placeholder="Name" />
                 </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicNumber">
+                <Form.Group className="mb-3" controlId="formBasicNumber">
                     <Form.Label>Phone</Form.Label>
                     <Form.Control ref={phoneRef} type="number" placeholder="phone" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control ref={emailRef}  type="email" placeholder="Enter email" required />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
+                    <Form.Control ref={emailRef} type="email" placeholder="Enter email" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -73,11 +72,12 @@ const Register = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="I agree to the terms and conditions" required />
                 </Form.Group>
+                
                 <Button variant="success" type="submit">
-                    Submit
+                    Register
                 </Button>
             </Form>
-            <p>Already have an account? <Link to='/login'className='text-danger pe-auto text-decoration-none' onClick={navigateLogin}>Log in here</Link></p>
+            <p>Already have an account? <Link to='/login' className='text-danger pe-auto text-decoration-none' onClick={navigateLogin}>Log in here</Link></p>
             <SocialLogin></SocialLogin>
         </div>
     );
