@@ -5,7 +5,7 @@ import './Review.css'
 const Review = ( props) => {
     const {name,image,rating,review} =props.review
     return (
-        <div className='container review '>
+        <div className='container review mx-auto d-block mb-5'>
             <img src={image} alt="" style={{width:"300px"}} />
             <h4 className='text-success ml-auto'>Name: {name}</h4>
             <p>{review}</p>

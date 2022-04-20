@@ -1,8 +1,11 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import SocialLogin from '../Login/SocialLogin/SocialLogin';
+import Loading from '../../Shared/Loading/Loading';
+
 
 const Register = () => {
     const [
@@ -10,7 +13,8 @@ const Register = () => {
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
+       const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
 
     const emailRef = useRef('');
@@ -26,14 +30,20 @@ const Register = () => {
     if(user){
         navigate('/home');
     }
+    if(loading){
+        return <Loading></Loading>
+    }
 
-    const handleSubmit = e =>{
+    const handleSubmit =async (e) =>{
         e.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         const name = nameRef.current.value;
         const phone = phoneRef.current.value;
-        createUserWithEmailAndPassword(email, password);
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName: name });
+        console.log('Updated profile');
+        navigate('/home');
     }
     
     return (
@@ -68,6 +78,7 @@ const Register = () => {
                 </Button>
             </Form>
             <p>Already have an account? <Link to='/login'className='text-danger pe-auto text-decoration-none' onClick={navigateLogin}>Log in here</Link></p>
+            <SocialLogin></SocialLogin>
         </div>
     );
 };
