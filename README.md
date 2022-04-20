@@ -1,5 +1,5 @@
 This is a photography service Simple Project
-live site link:
+live site link: https://mohu-s-photography.web.app/
 
 
 <h1>Available Scripts</h1>
